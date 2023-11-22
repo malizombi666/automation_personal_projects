@@ -22,7 +22,7 @@ def create_new_directory(new_dir_name, dir_path):
         print(f"an error occured: {e}")
 
 
-def extention(file):
+def extension(file):
     try:
         ind = file.name.rindex('.')
         return file.name[ind + 1:].lower()
@@ -42,13 +42,13 @@ def list_files(directory):
         for item in items:
             print(f'item is --> {item}')
             if item.is_file():
-                if exists_directory(directory, extention(item)):
+                if exists_directory(directory, extension(item)):
                     move_to_its_directory(os.path.join(
-                        directory, item), os.path.join(directory, extention(item)))
+                        directory, item), os.path.join(directory, extension(item)))
                 else:
-                    create_new_directory(extention(item), directory)
+                    create_new_directory(extension(item), directory)
                     move_to_its_directory(os.path.join(
-                        directory, item), os.path.join(directory, extention(item)))
+                        directory, item), os.path.join(directory, extension(item)))
             # add a part if the item is a directory
                 # print(item.name)
 
@@ -62,12 +62,12 @@ list_files(directory_path)
 #     for item in items:
 #         if item.is_file():
 #             count += 1
-#             print(extention(item))
+#             print(extension(item))
 # print(f'count is {count}')
 # with open(directory_path, "r") as directory:
 #     files = directory.readlines()
 
 
 # for item in directory_path:
-#     print(extention(item))
-# print(extention(mane.mp3))
+#     print(extension(item))
+# print(extension(mane.mp3))
